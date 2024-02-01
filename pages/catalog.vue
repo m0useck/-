@@ -1,5 +1,6 @@
 <template>
     <div>
+Страница каталог
     </div>
 </template>
 
@@ -7,6 +8,6 @@
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

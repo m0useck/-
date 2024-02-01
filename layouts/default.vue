@@ -1,5 +1,5 @@
 <template>
-    <!-- <Header/> -->
+    <Header/>
     <main class="grid-container">
         <slot/>
     </main>
