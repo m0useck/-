@@ -34,3 +34,6 @@
         @apply max-w-[var(--widthContent)]
     }    
 }
+    .swiper-pagination-bullet{
+        background-color: #2491AF !important;
+    }
