@@ -37,3 +37,7 @@
     .swiper-pagination-bullet{
         background-color: #2491AF !important;
     }
+
+    html{
+        scroll-behavior: smooth;
+    }

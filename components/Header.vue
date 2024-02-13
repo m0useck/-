@@ -37,9 +37,9 @@
                 <span :class="{'-rotate-45' : isMenuShow}" class="w-full h-0.5 bg-[#3BBAC2] rounded-[1px] origin-[0] transition-transform ease-linear duration-500"></span>
             </button>
         </div>
-        <div class="w-full absolute h-screen bg-black/70 left-0 col-span-full z-20 top-[calc(100%+1px)] lg:hidden" :class="{'hidden' : !isMenuShow}">
+        <div @click="isMenuShow = false" class="w-full absolute h-screen bg-black/70 left-0 col-span-full z-20 top-[calc(100%+1px)] lg:hidden" :class="{'hidden' : !isMenuShow}"></div>
 
-        </div>
+        
     </header>
 </template>
 

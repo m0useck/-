@@ -48,11 +48,37 @@
             <p class="text-md opacity-70">Если вы нуждаетесь в коррекции зрения, мы подберем качественные и безопасные очки или линзы для глаз.</p>
         </div>
     </div>
-    
+    <div class="flex flex-col gap-6">
+        <p class="text-2xl md:text-3xl xl:text-4xl text-center">Хиты продаж</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            <Card v-for="card in cards " v-bind="card"></Card>
+        </div>
+    </div>
 </template>
 
 <script setup>
-
+const cards=[
+    {
+        image: "https://images-ext-2.discordapp.net/external/t5MQMWWZ874YFd0Obx4tPmq7VG7ISdr7V5MZQ6qnCAs/https/polotnos.cdnbro.com/posts/9208918-krutye-ochki-risunok-13.jpg?format=webp&width=676&height=676",
+        title: "Очки из майнкрафта для самых крутых и отважных",
+        price: 100000
+    },
+    {
+        image: "https://images-ext-2.discordapp.net/external/t5MQMWWZ874YFd0Obx4tPmq7VG7ISdr7V5MZQ6qnCAs/https/polotnos.cdnbro.com/posts/9208918-krutye-ochki-risunok-13.jpg?format=webp&width=676&height=676",
+        title: "Очки из майнкрафта для самых крутых и отважных",
+        price: 100000
+    },
+    {
+        image: "https://images-ext-2.discordapp.net/external/t5MQMWWZ874YFd0Obx4tPmq7VG7ISdr7V5MZQ6qnCAs/https/polotnos.cdnbro.com/posts/9208918-krutye-ochki-risunok-13.jpg?format=webp&width=676&height=676",
+        title: "Очки из майнкрафта для самых крутых и отважных",
+        price: 100000
+    },
+    {
+        image: "https://images-ext-2.discordapp.net/external/t5MQMWWZ874YFd0Obx4tPmq7VG7ISdr7V5MZQ6qnCAs/https/polotnos.cdnbro.com/posts/9208918-krutye-ochki-risunok-13.jpg?format=webp&width=676&height=676",
+        title: "Очки из майнкрафта для самых крутых и отважных",
+        price: 100000
+    }
+]
 </script>
 
 <style scoped>
