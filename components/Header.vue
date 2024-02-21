@@ -12,7 +12,7 @@
                     <NuxtLink>
                         Акции
                     </NuxtLink>
-                    <NuxtLink>
+                    <NuxtLink to="/about">
                         О нас
                     </NuxtLink>
                 </div>
