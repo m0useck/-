@@ -41,3 +41,6 @@
     html{
         scroll-behavior: smooth;
     }
+    .swiper-button-prev, .swiper-button-next {
+        color: #2491AF !important;
+    }

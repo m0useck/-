@@ -23,16 +23,16 @@
                         </div>
                         <span class="bg-white rounded-full w-1 h-1 mx-auto md:hidden"></span>
                         <div class="flex items-center justify-between xl:w-3/4 mx-auto gap-4 max-md:flex-col">
-                            <NuxtLink class="flex flex-col w-fit after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all after:duration-300">Оферта</NuxtLink>
+                            <NuxtLink to="tel:8-999-888-77-66" class="flex flex-col w-fit after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all after:duration-300">8-999-888-77-66</NuxtLink>
                             <span class="bg-white rounded-full w-1 h-1"></span>
-                            <NuxtLink class="flex flex-col w-fit after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all after:duration-300">Политика конфиденциальности</NuxtLink>
+                            <NuxtLink to="mailto:123123123123@mail.ru" class="flex flex-col w-fit after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all after:duration-300">123123123123@mail.ru</NuxtLink>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="grid-container w-full bg-black/25 py-2">
-            <p class="text-center mx-auto">© 2023 Samareva™. All Rights Reserved.</p>
+            <p class="text-center mx-auto">© 2024 Samareva™. All Rights Reserved.</p>
         </div>
     </footer>
 </template>

@@ -18,15 +18,21 @@
         </div>
         <div class="relative w-full -mt-6 col-span-full grid-container py-10 bg-[#0C669C]">
             <div class="absolute w-full h-full top-0 bg-[url(/img/hero/bg.png)] bg-bottom left-0 col-span-full"></div>
-            <Swiper :loop="true" :space-between="20" :modules="[SwiperPagination, SwiperAutoplay]" :pagination="{ clickable: true }" :autoplay="{delay:3500}" class="w-full md:h-[calc(100vh/2)] z-[1] rounded-md shadow-[0px_0px_13px_-9px_black] overflow-hidden">
-                <SwiperSlide class="w-full" v-for="n in 10">
+            <Swiper :loop="true" :space-between="20" :modules="[SwiperPagination, SwiperAutoplay, SwiperNavigation]" :pagination="{ clickable: true }" :autoplay="{delay:3500}" :navigation="{enabled: true}" class="w-full md:h-[calc(100vh/2)] z-[1] rounded-md shadow-[0px_0px_13px_-9px_black] overflow-hidden">
+                <SwiperSlide class="w-full">
                     <NuxtLink class="w-full">
                         <img class="object-cover aspect-video w-full" src="/img/hero/3.jpg" alt="">
+                    </NuxtLink>
+                </SwiperSlide>
+                <SwiperSlide class="w-full">
+                    <NuxtLink class="w-full">
                         <img class="object-cover aspect-video w-full" src="/img/hero/4.jpg" alt="">
                     </NuxtLink>
-                    <!-- <NuxtLink class="w-full">
-                        <img class="object-cover aspect-video w-full " src="/img/hero/4.jpg" alt="">
-                    </NuxtLink> -->
+                </SwiperSlide>
+                <SwiperSlide class="w-full">
+                    <NuxtLink class="w-full">
+                        <img class="object-cover aspect-video w-full" src="/img/hero/5.jpg" alt="">
+                    </NuxtLink>
                 </SwiperSlide>
             </Swiper>
         </div>
@@ -63,7 +69,7 @@
         <div class="absolute w-full h-full top-0 left-0 bg-gradient-to-br from-[#0C669C] to-[#3BBAC2] opacity-85 col-span-full"></div>
         <div class="flex py-10 px-4 md:px-6 xl:px-10 rounded-md bg-white gap-6 z-[1] max-md:flex-col">
             <div class="md:w-[55%]">
-                <Swiper :loop="true" :space-between="20" :modules="[SwiperAutoplay]" :autoplay="{delay:3000}" class="w-full">
+                <Swiper :loop="true" :space-between="20" :modules="[SwiperAutoplay, SwiperPagination]" :pagination="{ clickable: true }" :autoplay="{delay:5000}" class="w-full h-full">
                     <SwiperSlide class="!flex flex-col gap-8 w-full">
                         <p class="text-2xl">Близорукость</p>
                         <p class="opacity-70">Близорукость — распространенное заболевание глаз, при котором человек видит хорошо близко, но плохо вдали. Причина - фокусировка света в области перед сетчаткой. Лечится очками, контактными линзами или хирургическими методами. Раннее выявление и правильная коррекция важны для сохранения зрения и комфортной жизни.</p> 
