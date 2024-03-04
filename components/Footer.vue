@@ -19,7 +19,7 @@
                             <span class="bg-white rounded-full w-1 h-1"></span>
                             <NuxtLink class="flex flex-col w-fit after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all after:duration-300">Проверка зрения</NuxtLink> 
                             <span class="bg-white rounded-full w-1 h-1"></span>
-                            <NuxtLink class="flex flex-col w-fit after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all after:duration-300">Доставка и оплата</NuxtLink>
+                            <NuxtLink class="flex flex-col w-fit after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all after:duration-300">Доставка</NuxtLink>
                         </div>
                         <span class="bg-white rounded-full w-1 h-1 mx-auto md:hidden"></span>
                         <div class="flex items-center justify-between xl:w-3/4 mx-auto gap-4 max-md:flex-col">

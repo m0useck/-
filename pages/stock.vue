@@ -1,6 +1,6 @@
 <template>
-    <div>
-
+    <div class="flex flex-col gap-6">
+        <p class="text-3xl">Акции</p>
     </div>
 </template>
 

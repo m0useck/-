@@ -38,7 +38,7 @@
         </div>
     </div>
     <div class="">
-        <p>Отзывы</p>
+        <p class="text-3xl">Отзывы</p>
     </div>
 </template>
 

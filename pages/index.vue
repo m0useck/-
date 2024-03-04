@@ -65,37 +65,7 @@
             <Card v-for="card in cards " v-bind="card"></Card>
         </div>
     </div>
-    <div class="relative bg-[url(/img/contact/bg.png)] w-full col-span-full py-16 grid-container">
-        <div class="absolute w-full h-full top-0 left-0 bg-gradient-to-br from-[#0C669C] to-[#3BBAC2] opacity-85 col-span-full"></div>
-        <div class="flex py-10 px-4 md:px-6 xl:px-10 rounded-md bg-white gap-6 z-[1] max-md:flex-col">
-            <div class="md:w-[55%]">
-                <Swiper :loop="true" :space-between="20" :modules="[SwiperAutoplay, SwiperPagination]" :pagination="{ clickable: true }" :autoplay="{delay:5000}" class="w-full h-full">
-                    <SwiperSlide class="!flex flex-col gap-8 w-full">
-                        <p class="text-2xl">Близорукость</p>
-                        <p class="opacity-70">Близорукость — распространенное заболевание глаз, при котором человек видит хорошо близко, но плохо вдали. Причина - фокусировка света в области перед сетчаткой. Лечится очками, контактными линзами или хирургическими методами. Раннее выявление и правильная коррекция важны для сохранения зрения и комфортной жизни.</p> 
-                    </SwiperSlide>
-                    <SwiperSlide class="!flex flex-col gap-8 w-full">
-                        <p class="text-2xl">Дальнозоркость</p>
-                        <p class="opacity-70">Дальнозоркость  - состояние, когда человек видит хорошо вдали, но плохо близко. Происходит из-за того, что фокус света падает позади сетчатки. Нередко возникает у детей и может быть унаследовано. Лечится очками, линзами или хирургическим вмешательством. Важна регулярная проверка зрения у офтальмолога для своевременной коррекции и поддержания зрительного комфорта.</p> 
-                    </SwiperSlide>
-                    <SwiperSlide class="!flex flex-col gap-8 w-full">
-                        <p class="text-2xl">Астигматизм</p>
-                        <p class="opacity-70">Астигматизм - это нарушение зрения, когда корневая поверхность глаза не идеально округлая, что вызывает искажение изображения. Человек видит размыто как на близком, так и на дальнем расстоянии. Лечится очками, линзами или хирургически. Важно регулярно проверять зрение у офтальмолога для подбора оптимального способа коррекции и поддержания зрительного комфорта.</p> 
-                    </SwiperSlide>
-                </Swiper>
-            </div>
-            <div class="flex flex-col md:w-[45%] rounded-lg p-1 bg-gradient-to-br from-[#0C669C] to-[#3BBAC2]">
-                <div class="flex flex-col items-center gap-8 bg-white w-full h-full rounded-md px-4 py-6">
-                    <p class="text-center text-xl">Консультация</p>
-                    <div class="flex flex-col gap-4 w-full items-center">
-                        <input class="border border-[#0C669C] px-4 py-1 w-4/5 focus:outline-none focus:ring-0 focus:appearance-none rounded-md" placeholder="Имя" type="text">
-                        <input class="border border-[#0C669C] px-4 py-1 w-4/5 focus:outline-none focus:ring-0 focus:appearance-none rounded-md" placeholder="Телефон" type="text">
-                    </div>
-                    <button class="bg-gradient-to-br from-[#0C669C] to-[#3BBAC2] rounded-md text-white text-center w-1/2 py-2">Звонок</button>
-                </div>
-            </div>
-        </div>
-    </div>
+<Feedback></Feedback>
 </template>
 
 <script setup>
@@ -113,7 +83,7 @@ const cards=[
     {
         image: "https://www.optic-city.ru/image/cache/rss/1/9/1/3/4/7/1/item_1913471/1913471_0-810x540.jpg.webp",
         title: "Очки PRODESIGN 1762 1 9631",
-        price: 199899
+        price: 19899
     }
 ]
 </script>
