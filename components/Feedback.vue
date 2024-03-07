@@ -19,18 +19,18 @@
                 </Swiper>
             </div>
             <div class="flex flex-col md:w-[45%] rounded-lg p-1 bg-gradient-to-br from-[#0C669C] to-[#3BBAC2]">
-                <form class="flex flex-col items-center gap-8 bg-white w-full h-full rounded-md px-4 py-6">
+                <FormKit type="form" @submit="feedback" messages-class="text-[#E71616]" form-class="flex flex-col items-center gap-8 bg-white w-full h-full rounded-md px-4 py-6" :actions="false">
                     <p class="text-center text-xl">Консультация</p>
                     <div class="flex flex-col gap-4 w-full items-center">
-                        <input v-model="form.name" required class="border border-[#0C669C] px-4 py-1 w-4/5 focus:outline-none focus:ring-0 focus:appearance-none rounded-md" placeholder="Имя" type="text">
-                        <input v-model="form.number" required class="border border-[#0C669C] px-4 py-1 w-4/5 focus:outline-none focus:ring-0 focus:appearance-none rounded-md" placeholder="Телефон" type="text">
+                        <FormKit v-model="form.name" validation="required|length:2" outer-class="$remove:mb-4 md:w-4/5" inner-class="$remove:mb-1 $remove:max-w-md $remove:ring-1 $remove:ring-gray-400 w-full $remove:focus-within:ring-2" message-class="text-[#E71616]" input-class="$remove:text-gray-700 $remove:border-none w-full border border-[#0C669C] px-4 py-1 w-full focus:outline-none focus:ring-0 focus:appearance-none rounded-md" name="Имя" placeholder="Имя" type="text"/>
+                        <FormKit v-model="form.number" validation="required|length:11" outer-class="$remove:mb-4 md:w-4/5" inner-class="$remove:mb-1 $remove:max-w-md $remove:ring-1 $remove:ring-gray-400 w-full $remove:focus-within:ring-2" message-class="text-[#E71616]" input-class="$remove:text-gray-700 $remove:border-none w-full border border-[#0C669C] px-4 py-1 w-full focus:outline-none focus:ring-0 focus:appearance-none rounded-md" name="Телефон" placeholder="Телефон" type="mask" mask="+7 (###) ### ## ##"/>
                     </div>
-                    <button @click="feedback" class="bg-gradient-to-br from-[#0C669C] to-[#3BBAC2] rounded-md text-white text-center w-1/2 py-2">Звонок</button>
+                    <FormKit type="submit" input-class="bg-gradient-to-br from-[#0C669C] to-[#3BBAC2] rounded-md text-white text-center w-full py-2 hover:opacity-80 transition-all duration-300 $remove:focus-visible:outline-blue-600 $remove:focus-visible:outline-offset-2 $remove:bg-blue-600 $remove:focus-visible:outline-2 $remove:inline-flex $remove:text-sm">Звонок</FormKit>
                     <button type="button" @click="message.title = null" class="fixed top-10 right-10 z-[11] cursor-pointer flex items-center gap-4 px-6 py-2 rounded-2xl w-fit text-[#131313] shadow-[0_0_20px_-7px]" :class="message.type ? ' bg-[#BDE595]' : 'bg-red-500'" v-if="message.title">
                         <span>{{message.title}}</span>
                         <Icon name="material-symbols:close-rounded" class="text-xl"/>
                     </button>
-                </form>
+                </FormKit>
             </div>
         </div>
     </div>

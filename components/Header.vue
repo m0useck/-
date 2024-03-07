@@ -29,7 +29,7 @@
                     <button>
                         <Icon class="text-2xl text-[#3BBAC2]" name="material-symbols:shopping-cart-outline"/>
                     </button>
-                    <NuxtLink class="bg-gradient-to-r from-[#0C669C] to-[#3BBAC2] text-white py-2 px-7 rounded-md">
+                    <NuxtLink to="/auth" class="bg-gradient-to-r from-[#0C669C] to-[#3BBAC2] text-white py-2 px-7 rounded-md hover:opacity-80 transition-all duration-300">
                         Вход
                     </NuxtLink>
                 </div>
