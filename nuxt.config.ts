@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "nuxt-swiper",
     "@nuxtjs/supabase",
-    "@formkit/nuxt"
+    "@formkit/nuxt",
+    "@pinia/nuxt"
   ],
   supabase: {
     redirect: false

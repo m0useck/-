@@ -26,10 +26,16 @@
                             <Icon class="text-2xl text-[#3BBAC2]" name="gravity-ui:magnifier"/>
                         </button>
                     </form>
-                    <button>
+                    <NuxtLink>
                         <Icon class="text-2xl text-[#3BBAC2]" name="material-symbols:shopping-cart-outline"/>
+                    </NuxtLink>
+                    <NuxtLink to="/" v-if="authenticated">
+                        <Icon class="text-2xl text-[#3BBAC2]" name="material-symbols:account-circle-full"/>
+                    </NuxtLink>
+                    <button @click="logout" v-if="authenticated" class="bg-gradient-to-r from-[#0C669C] to-[#3BBAC2] text-white py-2 px-7 rounded-md hover:opacity-80 transition-all duration-300">
+                        Выход
                     </button>
-                    <NuxtLink to="/auth" class="bg-gradient-to-r from-[#0C669C] to-[#3BBAC2] text-white py-2 px-7 rounded-md hover:opacity-80 transition-all duration-300">
+                    <NuxtLink to="/auth" v-else class="bg-gradient-to-r from-[#0C669C] to-[#3BBAC2] text-white py-2 px-7 rounded-md hover:opacity-80 transition-all duration-300">
                         Вход
                     </NuxtLink>
                 </div>
@@ -47,9 +53,14 @@
 </template>
 
 <script setup>
+import { useUserStore } from '~/stores/user';
+
     const isMenuShow = ref(false)
+    const {authenticated, role} = storeToRefs(useUserStore())
+    const router = useRouter()
+    const logout = () => {
+        authenticated.value = false
+        role.value = null
+        router.push('/')
+    }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
