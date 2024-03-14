@@ -88,9 +88,8 @@
 </template>
 
 <script setup>
-
+useServerSeoMeta({
+    title: 'Доставка',
+    lang: 'ru'
+})
 </script>
-
-<style lang="scss" scoped>
-
-</style>

@@ -43,5 +43,8 @@
 </template>
 
 <script setup>
-
+useServerSeoMeta({
+    title: 'О нас',
+    lang: 'ru'
+})
 </script>

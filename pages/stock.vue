@@ -5,9 +5,9 @@
 </template>
 
 <script setup>
-
+useServerSeoMeta({
+    title: 'Акции',
+    lang: 'ru'
+})
 </script>
 
-<style lang="scss" scoped>
-
-</style>

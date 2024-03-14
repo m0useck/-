@@ -64,7 +64,7 @@ const feedback = async () => {
             method:'post'        
       })
         if (error.value) return message.value.title = 'При отправке произошла ошибка!', message.value.type = false
-      message.value.title = 'Успешная отправка!', message.value.type = true 
+        message.value.title = 'Успешная отправка!', message.value.type = true 
         form.value.name = ""
         form.value.number = ""
         setTimeout(() => {

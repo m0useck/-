@@ -5,9 +5,9 @@
 </template>
 
 <script setup>
-
+useServerSeoMeta({
+    title: 'Каталог',
+    lang: 'ru'
+})
 </script>
 
-<style lang="scss" scoped>
-
-</style>
