@@ -13,12 +13,12 @@
                         'slidesPerView': 4
                     }
                 }">
-            <SwiperSlide class="!flex flex-col w-full rounded-md p-4 border border-gray-200 gap-6" v-for="a in 8">
+            <SwiperSlide class="!flex flex-col w-full rounded-md p-4 border border-gray-200 gap-6" v-for="review in reviews">
                 <div class="flex items-center gap-4">
                     <Icon class="text-4xl text-[#218CAD]" name="material-symbols:account-circle"/>
-                    <p class="text-xl">Имя Фамилия</p>  
+                    <p class="text-xl">{{ review.users.name }} {{ review.users.surname }}</p>  
                 </div>
-                <p class="opacity-70">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis minima placeat unde nobis eum magnam illo soluta architecto nemo ipsum, quasi ex doloribus beatae voluptates quaerat facilis ipsa odit quibusdam?</p>
+                <p class="opacity-70">{{ review.desc }}</p>
             </SwiperSlide>
         </Swiper>
         <button class="absolute top-1/2 -translate-y-1/2 -left-10 reviewsPrev">
@@ -27,7 +27,6 @@
         <button class="absolute top-1/2 -translate-y-1/2 -right-10 reviewsNext">
             <Icon class="text-4xl text-[#218CAD]" name="material-symbols:chevron-right"/>
         </button>
-        <pre>{{ reviews }}</pre>
     </div>
 </template>
 
