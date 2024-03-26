@@ -7,9 +7,15 @@ export default defineNuxtConfig({
     "nuxt-swiper",
     "@nuxtjs/supabase",
     "@formkit/nuxt",
-    "@pinia/nuxt"
+    "@pinia/nuxt",
+    "@nuxtjs/google-fonts"
   ],
   supabase: {
     redirect: false
+  },
+  googleFonts: {
+    families: {
+        'Montserrat': true
+    }
   }
 })
