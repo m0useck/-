@@ -1,6 +1,6 @@
 <template>
     <div class="relative bg-[url(/img/contact/bg.png)] w-full col-span-full py-16 grid-container">
-        <div class="absolute w-full h-full top-0 left-0 bg-gradient-to-br from-[#0C669C] to-[#3BBAC2] opacity-85 col-span-full"></div>
+        <div class="absolute w-full h-full top-0 left-0 bg-black/70 col-span-full"></div>
         <div class="flex py-10 px-4 md:px-6 xl:px-10 rounded-md bg-white gap-6 z-[1] max-md:flex-col">
             <div class="md:w-[55%]">
                 <Swiper :loop="true" :space-between="20" :modules="[SwiperAutoplay, SwiperPagination]" :pagination="{ clickable: true }" :autoplay="{delay:5000}" class="w-full h-full">

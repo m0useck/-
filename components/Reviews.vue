@@ -1,4 +1,8 @@
 <template>
+    <div class="flex items-center gap-2 text-xl md:text-2xl xl:text-3xl">
+        <p>Отзывы</p>
+        <span class="w-8 h-0.5 bg-black rounded-full"></span>
+    </div>
     <div class="relative col-span-full w-full grid-container">
         <Swiper :loop="true" :space-between="20" :modules="[SwiperAutoplay, SwiperNavigation]" :autoplay="{delay:3500}" :navigation="{prevEl:'.reviewsPrev', nextEl:'.reviewsNext'}" class="w-full z-[1] rounded-md"
         :breakpoints="
@@ -27,6 +31,19 @@
         <button class="absolute top-1/2 -translate-y-1/2 -right-10 reviewsNext">
             <Icon class="text-4xl text-[#218CAD]" name="material-symbols:chevron-right"/>
         </button>
+    </div>
+    <div class="relative bg-[url(/img/hero/reviews.avif)] bg-cover p-4 rounded-lg overflow-hidden">
+        <div class="absolute bg-black/70 w-full h-full top-0 left-0"></div>
+        <div class="relative flex flex-col gap-6 z-[1]">
+            <div class="flex items-center gap-2 text-xl md:text-2xl xl:text-3xl text-white">
+                <p>Оставить отзыв</p>
+                <span class="w-8 h-0.5 bg-white rounded-full"></span>
+            </div>
+            <FormKit type="form" :actions="false" messages-class="text-[#E71616]" form-class="flex flex-col items-center gap-6 w-full md:w-1/2 px-4 py-6 md:mx-auto">
+                <FormKit type="textarea" placeholder="Напишите свой отзыв здесь" input-class="p-4 focus:outline-none h-28" inner-class="$remove:w-max-md w-full" outer-class="w-full rounded-md overflow-hidden"/>
+                <FormKit type="submit" input-class="bg-gradient-to-br from-[#0C669C] to-[#3BBAC2] rounded-md text-white text-center w-full py-2 hover:opacity-80 transition-all duration-300 $remove:focus-visible:outline-blue-600 $remove:focus-visible:outline-offset-2 $remove:bg-blue-600 $remove:focus-visible:outline-2 $remove:inline-flex $remove:text-sm">Отправить</FormKit>
+            </FormKit>
+        </div>
     </div>
 </template>
 

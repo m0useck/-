@@ -60,7 +60,10 @@
         </div>
     </div>
     <div class="flex flex-col gap-6">
-        <p class="text-2xl md:text-3xl xl:text-4xl text-center">Хиты продаж</p>
+        <div class="flex items-center gap-2 text-xl md:text-2xl xl:text-3xl">
+            <p>Хиты продаж</p>
+            <span class="w-8 h-0.5 bg-black rounded-full"></span>
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Card v-for="card in cards " v-bind="card"></Card>
         </div>
