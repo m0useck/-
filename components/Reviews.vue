@@ -1,5 +1,6 @@
 <template>
     <div class="flex items-center gap-2 text-xl md:text-2xl xl:text-3xl">
+        <span class="w-8 h-0.5 bg-black rounded-full"></span>
         <p>Отзывы</p>
         <span class="w-8 h-0.5 bg-black rounded-full"></span>
     </div>
@@ -36,6 +37,7 @@
         <div class="absolute bg-black/70 w-full h-full top-0 left-0"></div>
         <div class="relative flex flex-col gap-6 z-[1]">
             <div class="flex items-center gap-2 text-xl md:text-2xl xl:text-3xl text-white">
+                <span class="w-8 h-0.5 bg-white rounded-full"></span>
                 <p>Оставить отзыв</p>
                 <span class="w-8 h-0.5 bg-white rounded-full"></span>
             </div>
