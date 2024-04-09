@@ -7,7 +7,7 @@
         <FormKit type="form" @submit="auth" messages-class="text-[#E71616]" form-class="flex flex-col gap-6 md:gap-8 xl:gap-10 w-full" :actions="false">
             <div class="flex lg:items-start max-lg:flex-col max-lg:px-4 gap-6 w-full justify-center">
                 <FormKit outer-class="$remove:mb-4 lg:w-1/3" v-model="authForm.email" validation="required|length:6|email" inner-class="$remove:mb-1 $remove:max-w-md $remove:ring-1 $remove:ring-gray-400 w-full $remove:focus-within:ring-2" message-class="text-[#E71616]" input-class="$remove:text-gray-700 $remove:border-none w-full border border-[#0C669C] px-4 py-1 w-full focus:outline-none focus:ring-0 focus:appearance-none rounded-full" name="Почта" placeholder="Почта" type="text"/>
-                <FormKit outer-class="$remove:mb-4 lg:w-1/3" v-model="authForm.password" validation="required|length:6" inner-class="$remove:mb-1 $remove:max-w-md $remove:ring-1 $remove:ring-gray-400 w-full $remove:focus-within:ring-2" message-class="text-[#E71616]" input-class="$remove:text-gray-700 $remove:border-none w-full border border-[#0C669C] px-4 py-1 w-full focus:outline-none focus:ring-0 focus:appearance-none rounded-full" name="Пароль" placeholder="••••••" type="password"/>
+                <FormKit outer-class="$remove:mb-4 lg:w-1/3" v-model="authForm.password" validation="required|length:5" inner-class="$remove:mb-1 $remove:max-w-md $remove:ring-1 $remove:ring-gray-400 w-full $remove:focus-within:ring-2" message-class="text-[#E71616]" input-class="$remove:text-gray-700 $remove:border-none w-full border border-[#0C669C] px-4 py-1 w-full focus:outline-none focus:ring-0 focus:appearance-none rounded-full" name="Пароль" placeholder="••••••" type="password"/>
             </div>
             <FormKit type="submit" input-class="bg-[#0C669C] rounded-full text-white text-center md:w-1/4 max-md:px-6 py-2 hover:opacity-80 transition-all duration-300 $remove:focus-visible:outline-blue-600 $remove:focus-visible:outline-offset-2 $remove:bg-blue-600 $remove:focus-visible:outline-2 $remove:inline-flex $remove:text-sm">Войти</FormKit>
             <div class="flex items-center justify-center gap-5">
@@ -41,7 +41,7 @@ const { messageTitle, messageType } = storeToRefs(useMessagesStore())
 const router = useRouter()
 const auth = async() => {
     
-let { data: users, error } = await supabase
+    let { data: users, error } = await supabase
     .from('users')
     .select("*")
     .eq('email', `${authForm.value.email}`)
@@ -66,9 +66,15 @@ let { data: users, error } = await supabase
                 messageTitle.value = null
             }, 3000) 
             userStore.authenticated = true
-            userStore.role = "user"
-            userStore.id = users[0].id
-            router.push('/') 
+            userStore.id = users[0].id 
+            if (users[0].role != 'admin') {
+                userStore.role = "user"
+                router.push('/')
+            } else {
+                userStore.role = "admin"
+                console.log(users[0].role)
+                router.push('/admin')
+            }
         }
     }
 }   
