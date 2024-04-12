@@ -18,7 +18,7 @@
                         'slidesPerView': 4
                     }
                 }">
-            <SwiperSlide class="!flex flex-col w-full rounded-md p-4 border border-gray-200 gap-6" v-for="review in reviews">
+            <SwiperSlide class="!flex flex-col w-full rounded-md p-4 border-2 border-[#0C669C] gap-6 bg-white" v-for="review in reviews">
                 <div class="flex items-center gap-4">
                     <Icon class="text-4xl text-[#218CAD]" name="material-symbols:account-circle"/>
                     <p class="text-xl">{{ review.users.name }} {{ review.users.surname }}</p>  

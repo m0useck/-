@@ -1,22 +1,5 @@
 <template>
-    <div class="flex items-center justify-center py-4 px-10 w-full rounded-md gap-16 max-lg:flex-col max-lg:gap-8 bg-gradient-to-r from-[#0C669C] to-[#3BBAC2] text-white">
-        <NuxtLink>
-            Оправы
-        </NuxtLink>
-        <NuxtLink>
-            Линзы
-        </NuxtLink>
-        <NuxtLink>
-            Контактные линзы
-        </NuxtLink>
-        <NuxtLink>
-            Готовые очки
-        </NuxtLink>
-        <NuxtLink>
-            Солнцезащитные очки
-        </NuxtLink>
-    </div>
-    <div class="relative w-full -mt-6 col-span-full grid-container py-10 bg-[#0C669C]">
+    <div class="relative w-full -mt-10 col-span-full grid-container py-10 bg-[#0C669C]">
         <div class="absolute w-full h-full top-0 bg-[url(/img/hero/bg.png)] bg-bottom left-0 col-span-full"></div>
         <Swiper :loop="true" :space-between="20" :modules="[SwiperPagination, SwiperAutoplay, SwiperNavigation]" :pagination="{ clickable: true }" :autoplay="{delay:3500}" :navigation="{enabled: true}" class="w-full md:h-[calc(100vh/2)] z-[1] rounded-md shadow-[0px_0px_13px_-9px_black] overflow-hidden">
             <SwiperSlide class="w-full">
@@ -36,6 +19,24 @@
             </SwiperSlide>
         </Swiper>
     </div>
+    <div class="flex items-center justify-center py-4 px-10 w-full rounded-md gap-16 max-lg:flex-col max-lg:gap-8 bg-gradient-to-r from-[#0C669C] to-[#3BBAC2] text-white -mt-6">
+        <NuxtLink>
+            Оправы
+        </NuxtLink>
+        <NuxtLink>
+            Линзы
+        </NuxtLink>
+        <NuxtLink>
+            Контактные линзы
+        </NuxtLink>
+        <NuxtLink>
+            Готовые очки
+        </NuxtLink>
+        <NuxtLink>
+            Солнцезащитные очки
+        </NuxtLink>
+    </div>
+    
     <div class="flex flex-col gap-6">
         <div class="flex items-center gap-2 text-xl md:text-2xl xl:text-3xl">
             <span class="w-8 h-0.5 bg-black rounded-full"></span>
