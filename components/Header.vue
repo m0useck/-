@@ -5,7 +5,7 @@
                 <img class="w-20" src="/img/header/logo.png" alt=""> 
             </NuxtLink>
             <div class="flex items-center lg:justify-between max-lg:px-4 grow max-lg:flex-col max-lg:absolute max-lg:gap-6 max-lg:left-0 max-lg:bg-white max-lg:transition-all max-lg:duration-500 max-lg:z-30 max-lg:py-6 max-lg:justify-center max-lg:w-full" :class="isMenuShow ? 'max-lg:top-[calc(100%+1px)]' : 'max-lg:top-0 max-lg:-translate-y-full'">
-                <div class="flex items-center gap-16 max-lg:flex-col max-lg:gap-8">
+                <div class="flex items-center gap-16 max-lg:flex-col max-xl:gap-8">
                     <NuxtLink to="/catalog">
                         Каталог
                     </NuxtLink>
@@ -26,7 +26,7 @@
                             <Icon class="text-2xl text-[#3BBAC2]" name="gravity-ui:magnifier"/>
                         </button>
                     </form>
-                    <NuxtLink to="/cart">
+                    <NuxtLink to="/cart" v-if="authenticated">
                         <Icon class="text-2xl text-[#3BBAC2]" name="material-symbols:shopping-cart-outline"/>
                     </NuxtLink>
                     <NuxtLink to="/" v-if="authenticated">

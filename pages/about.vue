@@ -37,9 +37,7 @@
             </div>
         </div>
     </div>
-    <div class="">
-        <p class="text-3xl">Отзывы</p>
-    </div>
+    <Reviews></Reviews>
 </template>
 
 <script setup>
