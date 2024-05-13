@@ -15,7 +15,13 @@ export default defineNuxtConfig({
   },
   googleFonts: {
     families: {
-        'Montserrat': true
+        'PT Sans': true,
+        'Comfortaa': true
+    }
+  },
+  postcss: {
+    plugins: {
+      cssnano: false 
     }
   }
 })

@@ -5,17 +5,17 @@
                 <Swiper :loop="true" :space-between="20" :modules="[SwiperPagination, SwiperAutoplay, SwiperNavigation]" :navigation="{prevEl:'.productsPrev', nextEl:'.productsNext'}" :pagination="{ clickable: true }" :autoplay="{delay:3500}" class="w-full z-[1] rounded-md overflow-hidden">
                     <SwiperSlide class="w-full">
                         <NuxtLink class="w-full">
-                            <img class="object-cover aspect-video w-full" src="/img/hero/3.jpg" alt="">
+                            <img class="object-cover aspect-video w-full" :src="data[0].image" alt="">
                         </NuxtLink>
                     </SwiperSlide>
                     <SwiperSlide class="w-full">
                         <NuxtLink class="w-full">
-                            <img class="object-cover aspect-video w-full" src="/img/hero/4.jpg" alt="">
+                            <img class="object-cover aspect-video w-full" :src="data[0].image2" alt="">
                         </NuxtLink>
                     </SwiperSlide>
                     <SwiperSlide class="w-full">
                         <NuxtLink class="w-full">
-                            <img class="object-cover aspect-video w-full" src="/img/hero/5.jpg" alt="">
+                            <img class="object-cover aspect-video w-full" :src="data[0].image3" alt="">
                         </NuxtLink>
                     </SwiperSlide>
                 </Swiper>
@@ -27,25 +27,25 @@
                 </button>
             </div>
             <div class="lg:w-2/5 flex flex-col gap-6">
-                <p class="opacity-70 text-sm">ID:21212121</p>
+                <p class="opacity-70 text-sm">ID: {{ data[0].id }}</p>
                 <div class="flex flex-col gap-2">
-                    <p class="text-3xl font-semibold">Бренд</p>
-                    <p class="text-xl opacity-80">Название</p>
+                    <p class="text-3xl font-semibold">{{ data[0].brand }}</p>
+                    <p class="text-xl opacity-80">{{ data[0].title }}</p>
                 </div>
                 <div class="h-px rounded-full mx-auto w-[90%] bg-[#0C669C]/80"></div>
-                <p class="text-3xl text-[#3BBAC2]">500 000 000₽</p>
+                <p class="text-3xl text-[#3BBAC2]">{{ data[0].price.toLocaleString() }}₽</p>
                 <div class="h-px rounded-full mx-auto w-[90%] bg-[#0C669C]/80"></div>
-                <button class="bg-[#0C669C] rounded-full text-white px-4 py-2 w-1/2 mx-auto transition-all hover:animate-pulse">Купить</button>
+                <button @click="addCart" v-if="authenticated && role == 'user'" class="bg-[#0C669C] rounded-full text-white px-4 py-2 w-1/2 mx-auto transition-all hover:animate-pulse">Купить</button>
                 <p class="text-lg">Товар: <span class="text-emerald-700">в наличии</span></p>
             </div>
         </div>
-        <div class="flex flex-col bg-white rounded-md p-4 gap-8 col-span-1">
+        <div class="flex flex-col bg-white rounded-md p-4 gap-8 col-span-1" v-if="data[0].characteristic">
             <p class="text-2xl">Характеристики</p>
             <div class="flex flex-col gap-4">
-                <div class="flex flex-col gap-2 text-base" v-for="d in 5">
+                <div class="flex flex-col gap-2 text-base" v-for="characteristic in data[0].characteristic">
                     <div class="flex items-center justify-between gap-2">
-                        <p class="opacity-60">Материал оправы:</p>
-                        <p>Пластик-металл</p>
+                        <p class="opacity-60">{{ characteristic.title }}</p>
+                        <p>{{ characteristic.value }}</p>
                     </div>
                     <div class="h-px w-full border-b border-black/70 border-dashed"></div>    
                 </div>
@@ -70,8 +70,73 @@
 </template>
 
 <script setup>
-useServerSeoMeta({
-    title: 'Товар',
-    lang: 'ru'
-})
+    /* название страницы */
+    useServerSeoMeta({
+        title: 'Товар',
+        lang: 'ru'
+    })
+
+
+    /* получение id товара и проверка пользователя */
+    const route = useRoute()
+    const {authenticated, role, id} = storeToRefs(useUserStore())
+
+
+    /* подключение к БД */
+    const supabase = useSupabaseClient()
+    const { data, error } = await supabase
+    .from('products')
+    .select('*')
+    .eq('id', `${route.params.id}`)
+
+
+    /* создание сообщений */
+    const { messageTitle, messageType } = storeToRefs(useMessagesStore())
+
+
+    /* добавление в корзину */
+    const addCart = async () => {
+        const { data: carts, error } = await supabase
+        .from('cart')
+        .select(`*, products (*)`)
+        .eq('status', 'В корзине')
+        .eq('userId', `${id.value}`)
+        .eq('productId', `${route.params.id}`)
+
+        console.log(carts)
+
+        if(carts.length>0) {
+            const { data, error } = await supabase
+            .from('cart')
+            .update({ count: `${Number(carts[0].count)+1}` })
+            .eq('status', 'В корзине')
+            .eq('userId', `${id.value}`)
+            .eq('productId', `${route.params.id}`)
+            .select()      
+        
+            messageTitle.value = 'Количество обновлено!', messageType.value = true
+            setTimeout(() => {
+                messageTitle.value = null
+            }, 3000)
+        } else {            
+            const { data, error } = await supabase
+            .from('cart')
+            .insert([
+                { userId: `${id.value}`, productId: `${route.params.id}`, status: 'В корзине', count: 1 },
+            ])
+            .select()       
+            
+            if(data) {
+                messageTitle.value = 'Добавлено в корзину!', messageType.value = true
+                setTimeout(() => {
+                    messageTitle.value = null
+                }, 3000)
+            } else {
+                messageTitle.value = 'Произошла ошибка!', messageType.value = false
+                setTimeout(() => {
+                    messageTitle.value = null
+                }, 3000) 
+            }            
+        }
+    }
 </script>
