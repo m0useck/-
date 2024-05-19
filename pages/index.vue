@@ -9,7 +9,7 @@
             </SwiperSlide>
             <SwiperSlide class="w-full">
                 <NuxtLink class="w-full">
-                    <img class="object-cover aspect-video w-full" src="/img/hero/6.png" alt="">
+                    <img class="object-cover aspect-video w-full" src="/img/hero/promotion_1.png" alt="">
                 </NuxtLink>
             </SwiperSlide>
             <SwiperSlide class="w-full">
